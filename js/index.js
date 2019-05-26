@@ -28,14 +28,14 @@ function displayRepositories() {
     document.getElementById('details').innerHTML = commitsList;
     }
 
-  function getBranches(el) {
-    const repo = el.dataset.repository;
-    const username = document.getElementById('username').value
-    const req = new XMLHttpRequest();
-    req.addEventListener('load', displayBranches);
-    req.open('GET', 'https://api.github.com/repos/' + el.dataset.username + '/' + repo + '/commits');
-    req.send();
-  }
+    function getBranches(el) {
+      const repoName = el.dataset.repository;
+      const username = document.getElementById('username').value
+      const req = new XMLHttpRequest();
+      req.addEventListener('load', displayBranches);
+      req.open('GET', `https://api.github.com/repos/${username}/${repoName}/branches`);
+      req.send();
+    }
 
   function displayBranches() {
     const branches = JSON.parse(this.responseText);
