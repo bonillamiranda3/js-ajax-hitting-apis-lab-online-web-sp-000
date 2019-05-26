@@ -32,7 +32,7 @@ function displayRepositories() {
     const repo = el.dataset.repository;
     const username = document.getElementById('username').value
     const req = new XMLHttpRequest();
-    req.addEventListener('load', displayBranches)
+    req.addEventListener('load', displayBranches);
     req.open('GET', 'https://api.github.com/repos/' + el.dataset.username + '/' + repo + '/commits');
     req.send();
   }
